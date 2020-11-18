@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.hidden {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.mainForms {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
+}
+
+.userSelector {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.chatContainer {
+  height: calc(100vh - 200px);
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y proximity;
+}
+
+.chatContainer > #chatlog > .message:last-child {
+  scroll-snap-align: end;
+}
+
+.addMessage {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  align-items: stretch;
+}
+
+.username {
+  margin: 10px;
+}
+
+.status {
+  /* text-align: center; */
+}
+
+.statusBlock {
+  background: #f5f5f5;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+}
+
+.userText {
+  font-size: 0.75rem;
+  margin: 0.25rem;
+}
+
+.localMessage {
+  align-items: flex-end;
+}
+
+.incomingMessage {
+  align-items: flex-start;
+}
+
+.localMessage .userText {
+  margin-right: 0.25rem;
+}
+
+.incomingMessage .userText {
+  margin-left: 0.25rem;
+}
+
+.messageText {
+  background: #f5f5f5;
+  padding: 0.5rem 0.75rem;
+  width: fit-content;
+  overflow-wrap: break-word;
+  max-width: 150px;
+}
+
+.messageText--loud {
+  animation: loud 1s;
+}
+
+.messageText--quiet {
+  animation: quiet 1.5s;
+}
+
+@keyframes loud {
+  0% {
+    transform: scale(1);
+  }
+
+  33% {
+    transform: scale(3);
+  }
+
+  80% {
+    transform: rotate(-40deg);
+  }
+
+  90% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes quiet {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

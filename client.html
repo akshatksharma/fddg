@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chatapp.</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="page__header">
+        <div class="mainForms">
+          <form class="form form--user">
+            <label class="" for="userText">username</label>
+            <input type="text" id="userText" />
+            <button id="sendUser">login</button>
+          </form>
+          <form class="form form--room">
+            <label class="" for="roomText">add room</label>
+            <input type="text" id="roomText" />
+            <div>
+              <label class="">password?</label>
+              <input id="togglePass" type="checkbox" />
+            </div>
+            <button id="sendRoom">send</button>
+            <select id="roomList"> </select>
+          </form>
+        </div>
+        <div class = "userSelector">
+          <select id="userList"> 
+            <option value="see users">see users</option>
+          </select>
+        </div>
+      </header>
+      <div class="chatContainer">
+        <div id="chatlog"></div>
+      </div>
+      <form class="addMessage">
+        <label class="hidden" for="messageText">message</label>
+        <input
+          type="text"
+          id="messageText"
+          placeholder="type a message or command ( /help )"
+        />
+        <button id="sendMessage">send</button>
+      </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="./client.js"></script>
+  </body>
+</html>
